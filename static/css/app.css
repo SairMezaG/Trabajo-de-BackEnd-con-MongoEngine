@@ -1,0 +1,198 @@
+ body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+h1{
+    color: red;
+    text-align: center;
+}
+
+.form_inicioDeSesion{
+    border: solid 2px;
+    border-radius: 10px;
+    background-color: rgb(255, 229, 127);
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.botonInicioDeSesion{
+    border: solid 2px;
+    border-radius: 7px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 150px;
+    height: 30px;
+    color: red;
+    font-size: 15px;
+}
+
+.input_formulario{
+    display: flex;
+   justify-content: center;
+   margin-top: 30px;
+}
+
+
+.form_agregarProducto{
+    border: solid 2px;
+    border-radius: 10px;
+    background-color: rgb(255, 229, 127);
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+} 
+
+.codigo{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+   
+
+}
+
+.nombre{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+
+}
+
+.precio{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+}
+
+.categoria{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    height: 30px;
+
+}
+
+.foto{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+    
+}
+
+
+
+.botonAgregar{
+    margin-bottom: 20px;
+    width: 150px;
+    border-radius: 7px;
+    color: red;
+    margin-left: 170px;
+    cursor: pointer;
+    height: 30px;
+}
+
+input{
+   width: 300px;
+   height: 30px;
+   text-align: center;
+   border-radius: 7px;
+}
+
+img{
+    width: 90px;
+    height: 70px;
+}
+
+
+th{
+    border: solid 2px;
+    background-color: rgb(0, 174, 255);
+    border-radius: 7px;
+    font-size: 20px;
+}
+
+td{
+    border: solid 2px;
+    background-color: rgb(225, 225, 240);
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.form_editarProducto{
+    border: solid 2px;
+    border-radius: 10px;
+    background-color: rgb(255, 229, 127);
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.botonEditarProductos{
+    margin-bottom: 20px;
+    width: 150px;
+    border-radius: 7px;
+    color: red;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.botonEliminarProducto{
+    margin-bottom: 20px;
+    width: 150px;
+    border-radius: 7px;
+    color: red;
+    margin-top: 20px;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 20px;
+}
+
+
+.botonGuardarCambios{
+    margin-bottom: 20px;
+    width: 150px;
+    border-radius: 7px;
+    color: red;
+    margin-top: 20px;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 20px;
+}
+
+
+.cerrarSesion{
+    color: red;
+    border: solid 20px;
+    border-radius: 10px;
+}
+
+select{
+    border-radius: 10px;
+}
+
+
+.botonConsultar{
+    border: solid 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+

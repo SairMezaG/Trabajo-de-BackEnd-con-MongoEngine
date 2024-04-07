@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+<h2>Editar/Actualizar Producto</h2>
+
+<form class="form_editarProducto"   method="post" enctype="multipart/form-data">
+    <div class="nombre">
+        <label for="nombre">Nombre:</label>
+        <input class="nombre"  type="text" id="nombre" name="nombre" value="{{ producto.nombre }}" required>
+    </div>
+    <div  class="precio">
+        <label for="precio">Precio:</label>
+        <input class="precio"  type="number" id="precio" name="precio"  value="{{ producto.precio }}" required>
+    </div>
+    <div class="categoria"  >
+        <label for="categoria">Categoría:</label>
+        <select id="categoria" name="categoria" required>
+            <option value="tecnologia" {% if producto.categoria == 'tecnologia' %} selected {% endif %}>Tecnología</option>
+            <option value="electrodomesticos" {% if producto.categoria == 'electrodomesticos' %} selected {% endif %}>Electrodomésticos</option>
+            <option value="hogar" {% if producto.categoria == 'hogar' %} selected {% endif %}>Hogar</option>
+        </select>
+    </div>
+    <div class="foto">
+        <label for="foto">Foto:</label>
+        <input class="foto"  type="file" id="foto" name="foto">
+    </div>
+
+    <button class="botonGuardarCambios"  type="submit">Guardar Cambios</button>
+    <button class="botonGuardarCambios"  type="submit">Cancelar</button>
+</form>

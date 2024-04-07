@@ -1,0 +1,125 @@
+{% extends 'base.html' %} {% block title %}Agregar Producto{% endblock %} {%
+block content %}
+
+<h1>Agregar Producto</h1>
+
+<form method="post" enctype="multipart/form-data" class="form_agregarProducto">
+  <div class="codigo">
+    <label for="codigo">Código:</label>
+    <input
+      type="text"
+      id="codigo"
+      name="codigo"
+      required
+      placeholder="Ingrese el codigo del Producto"
+    />
+  </div>
+  <div class="nombre">
+    <label for="nombre">Nombre:</label>
+    <input
+      type="text"
+      id="nombre"
+      name="nombre"
+      required
+      placeholder="Ingrese el Nombre del Producto"
+    />
+  </div>
+  <div class="precio">
+    <label for="precio">Precio:</label>
+    <input
+      type="number"
+      id="precio"
+      name="precio"
+      required
+      placeholder="Ingrese el precio del Producto"
+    />
+  </div>
+  <div class="categoria">
+    <label for="categoria">Categoría:</label>
+    <select id="categoria" name="categoria" required>
+      <option value="" disabled selected>Selecciona una categoría</option>
+      <option value="tecnologia">Tecnología</option>
+      <option value="electrodomesticos">Electrodomésticos</option>
+      <option value="hogar">Hogar</option>
+    </select>
+  </div>
+  <div class="foto">
+    <label for="foto">Foto:</label>
+    <input type="file" id="foto" name="foto" required />
+  </div>
+  <button type="submit" class="botonAgregar">Agregar Producto</button>
+</form>
+
+
+<h2>Lista de Productos</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %} {% if messages
+    %} {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %} {% endif %} {% endwith %}
+    
+<table>
+  <tr>
+    <th>Código</th>
+    <th>Nombre</th>
+    <th>Precio</th>
+    <th>Categoría</th>
+    <th>Foto</th>
+    <th class="acciones">Acciones</th>
+  </tr>
+  {% for producto in productos %}
+  <tr>
+    <td>{{ producto.codigo }}</td>
+    <td>{{ producto.nombre }}</td>
+    <td>{{ producto.precio }}</td>
+    <td>{{ producto.categoria }}</td>
+    <td>
+      <img
+        src="{{ url_for('static', filename='imagenes/' + producto.foto) }}"
+        alt="Foto de Producto"
+      />
+    </td>
+
+    <td>
+      <div>
+        <form
+          action="{{ url_for('eliminarProducto', codigo=producto.codigo) }}"
+          method="post"
+          onsubmit="return confirm('¿Estás seguro de que quieres eliminar este producto de la Base de Datos?')"
+        >
+          <button class="botonEliminarProducto"  type="submit">Eliminar</button>
+        </form>
+      </div>
+
+      <div>
+        <form
+          action="{{ url_for('editarProducto', codigo=producto.codigo) }}"
+          method="GET"
+          onsubmit="return confirm('El Producto seleccionadao ya se encuentra registrado en la base de datos.¿Está seguro que desea modificarlo?')"
+        >
+          <button class="botonEditarProductos"  type="submit">Editar</button>
+        </form>
+      </div>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h2>Buscar Producto por su Codigo</h2>
+<form action="{{ url_for('consultarProducto', codigo='') }}" method="GET">
+  <label for="codigo">Código del Producto:</label>
+  <input
+    type="text"
+    id="codigo"
+    name="codigo"
+    required
+    placeholder="Ingrese el codigo del Producto"
+  />
+  <button class="botonConsultar"  type="submit">Consultar</button>
+</form>
+
+<br />
+<br />
+
+<a class="cerrarSesion" href="{{ url_for('logout') }}">Cerrar Sesión</a>
+{% endblock %}

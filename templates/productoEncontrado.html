@@ -1,0 +1,18 @@
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+
+<h1>Producto Encontrado</h1>
+<p>Código: {{ producto.codigo }}</p>
+<p>Nombre: {{ producto.nombre }}</p>
+<p>Precio: {{ producto.precio }}</p>
+<p>Categoría: {{ producto.categoria }}</p>
+<p>Foto</p>
+<img src="{{ url_for('static', filename='imagenes/' + producto.foto) }}" alt="Foto de Producto">
+<br>
+<br>
+<br>
+
+<form action="{{ url_for('agregarProducto') }}" method="GET">
+    <button type="submit">Volver al formulario de registro</button>
+</form>

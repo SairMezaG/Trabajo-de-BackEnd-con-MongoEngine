@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BackEnd{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+
+</head>
+<body>
+    <header>
+       
+        <h1>Proyecto de BackEnd usando MongoEngine</h1>
+    </header>
+    
+    
+
+    <main>
+       
+        {% block content %}{% endblock %}
+    </main>
+    <br>
+    <br>
+
+    <footer>
+        
+        <p>ANALISIS Y DESARROLLO DE  SOFTWARE</p>
+    </footer>
+</body>
+</html>
