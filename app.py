@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_mongoengine import MongoEngine
+import urllib.request
 
 app = Flask(__name__)
 app.secret_key = 'MiClaveSecreta'
@@ -130,6 +131,17 @@ def eliminarProducto(codigo):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """Validar recaptcha"""
+    recaptcha_response = request.form["g-recaptcha-response"]
+    url= "https://www.google.com/recaptcha/api/siteverify " 
+    values = {
+        "secret": "6LfIILcpAAAAAPfyB3L3TqRqpGqh1dez21GvaumE",
+        "response": recaptcha_response
+    }
+    data = urllib.parse.urlencode(values).encode()
+    req = urllib.request.Request(url, data = data)
+    respose = urllib.request.urlopen(req)
+    
     if request.method == 'POST':
         usuario = request.form['usuario']
         contrasenia = request.form['contrasenia']
